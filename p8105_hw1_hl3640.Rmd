@@ -71,3 +71,17 @@ Here are the results of applying the `mean` function to each variable:
 * The function works when applied to the logical variable `logical`, because `TRUE` and `FALSE` can be interpreted as `1` and `0` respectively in R.
 * The function does not work when applied to the character variable `char`.
 * The function does not work when applied to the factor variable `factor`.
+
+Next, apply the `as.numeric` function to the logical, character, and factor variables (output not displayed).
+
+```{r chunk_applyfunction, results = 'hide', warning = FALSE}
+as.numeric(pull(p2_df, logical))
+as.numeric(pull(p2_df, char))
+as.numeric(pull(p2_df, factor))
+```
+
+Here are the results of applying the `as.numeric` function:
+
+* The function works when applying to the logical variable `logical`, because it converts `TRUE` and `FALSE` to `1` and `0` respectively.
+* The function does not work when applying to the character variable `char`.
+* The function works when applying to the factor variable `factor`, because it converts `"< 2 AU"`, `"> 15 AU"`, and `"2-15 AU"` to `1`, `2`, and `3` respectively. According to the description of `factor` function, the levels of a factor are by default sorted, but the sort order may well depend on the locale at the time of creation, and should not be assumed to be ASCII.
