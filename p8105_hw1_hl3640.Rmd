@@ -3,3 +3,11 @@ title: "Data Science I Homework 1"
 author: "Hongjie Liu"
 output: github_document
 ---
+
+# Problem 1
+
+Load the `penguins` dataset.
+
+```{r chunk_loaddataset}
+data("penguins", package = "palmerpenguins")
+```
