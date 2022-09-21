@@ -10,6 +10,7 @@ Load the package `tidyverse` for homework 1.
 library(tidyverse)
 ```
 
+
 ## Problem 1
 
 Load the `penguins` dataset.
@@ -36,7 +37,8 @@ Save the scatter pot as a PDF file.
 ggsave("scatterplot_p8105_hw1_hl3640.pdf")
 ```
 
-# Problem 2
+
+## Problem 2
 
 Create a data frame comprised of:
 
@@ -53,3 +55,19 @@ p2_df = tibble(
   factor = factor(c("< 2 AU", "< 2 AU", "< 2 AU", "< 2 AU", "2-15 AU", "2-15 AU", "2-15 AU", "> 15 AU", "> 15 AU", "> 15 AU"))
   )
 ```
+
+Try to take the mean of each variable in my dataframe.
+
+```{r chunk_takingmean}
+mean(pull(p2_df, norm))
+mean(pull(p2_df, logical))
+mean(pull(p2_df, char))
+mean(pull(p2_df, factor))
+```
+
+Here are the results of applying the `mean` function to each variable:
+
+* The function works when applied to the numeric variable `norm`.
+* The function works when applied to the logical variable `logical`, because `TRUE` and `FALSE` can be interpreted as `1` and `0` respectively in R.
+* The function does not work when applied to the character variable `char`.
+* The function does not work when applied to the factor variable `factor`.
