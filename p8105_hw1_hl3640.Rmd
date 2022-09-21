@@ -4,6 +4,12 @@ author: "Hongjie Liu"
 output: github_document
 ---
 
+Load the package `tidyverse` for homework 1.
+
+```{r chunk_library, message = FALSE}
+library(tidyverse)
+```
+
 ## Problem 1
 
 Load the `penguins` dataset.
@@ -17,3 +23,15 @@ Here is a short description of the `penguins` dataset:
 * The names of the variables are ``r names(penguins)``. The values of the variable `species` are ``r unique(penguins$species)``. The values of the variable `island` are ``r unique(penguins$island)``. The values of the variable `year` are ``r unique(penguins$year)``.
 * The dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns.
 * The mean flipper length is `r round(mean(penguins$flipper_length_mm, na.rm=TRUE))` mm. (excluding missing values, rounded to integer)
+
+Make a scatter plot to see the difference in flipper length and bill length between three species of penguins in the `penguins` dataset:
+
+```{r chunk_scatterplot}
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+```
+
+Save the scatter pot as a PDF file.
+
+```{r chunk_saveplot}
+ggsave("scatterplot_p8105_hw1_hl3640.pdf")
+```
