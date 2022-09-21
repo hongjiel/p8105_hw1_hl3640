@@ -4,10 +4,16 @@ author: "Hongjie Liu"
 output: github_document
 ---
 
-# Problem 1
+## Problem 1
 
 Load the `penguins` dataset.
 
 ```{r chunk_loaddataset}
 data("penguins", package = "palmerpenguins")
 ```
+
+Here is a short description of the `penguins` dataset:
+
+* The names of the variables are ``r names(penguins)``. The values of the variable `species` are ``r unique(penguins$species)``. The values of the variable `island` are ``r unique(penguins$island)``. The values of the variable `year` are ``r unique(penguins$year)``.
+* The dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns.
+* The mean flipper length is `r round(mean(penguins$flipper_length_mm, na.rm=TRUE))` mm. (excluding missing values, rounded to integer)
